@@ -1,5 +1,3 @@
-const Game = (() => {})();
-
-const Controller = (() => {})();
-
-const Player = (marker) => {};
+const Game = (() => {
+	const board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+})();
