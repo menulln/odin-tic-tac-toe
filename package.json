@@ -1,0 +1,20 @@
+{
+  "name": "odin-tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Tic Tac Toe project from TOP.",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/menulln/odin-tic-tac-toe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/menulln/odin-tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/menulln/odin-tic-tac-toe#readme"
+}
