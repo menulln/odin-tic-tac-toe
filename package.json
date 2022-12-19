@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/menulln/odin-tic-tac-toe/issues"
   },
-  "homepage": "https://github.com/menulln/odin-tic-tac-toe#readme"
+  "homepage": "https://github.com/menulln/odin-tic-tac-toe#readme",
+  "devDependencies": {
+    "eslint": "^8.30.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
 }
