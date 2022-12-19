@@ -17,6 +17,10 @@
         "quotes": [
             "error",
             "single"
+        ],
+        "indent": [
+            "error",
+            "tab"
         ]
     }
 }
