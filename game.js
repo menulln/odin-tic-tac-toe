@@ -56,15 +56,16 @@ const Controller = (() => {
 		const marker = playerOneTurn
 			? Game.playerOne.marker
 			: Game.playerTwo.marker;
-
-		if (playerOneTurn) {
-			Game.setBoard(position, marker);
-			drawBoard();
-			playerOneTurn = false;
-		} else {
-			Game.setBoard(position, marker);
-			drawBoard();
-			playerOneTurn = true;
+		if (e.target.textContent === '') {
+			if (playerOneTurn) {
+				Game.setBoard(position, marker);
+				drawBoard();
+				playerOneTurn = false;
+			} else {
+				Game.setBoard(position, marker);
+				drawBoard();
+				playerOneTurn = true;
+			}
 		}
 	};
 	return {
