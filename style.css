@@ -10,6 +10,13 @@ main {
 }
 
 .square {
+    font-family: 'Arial';
+    display: flex;
+    place-items: center;
+    min-width: 25vmin;
+    min-height: 25vmin;
     justify-self: center;
-    font-size: calc(5rem + 1vw);
+    font-size: calc(3rem + 3vw);
+    border: 1px solid black;
+    font-weight: 1000;
 }
