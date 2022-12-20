@@ -1,0 +1,10 @@
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.board {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
