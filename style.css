@@ -12,7 +12,8 @@ main {
 .square {
     font-family: 'Arial';
     display: flex;
-    place-items: center;
+    align-items: center;
+    justify-content: center;
     min-width: 25vmin;
     min-height: 25vmin;
     justify-self: center;
