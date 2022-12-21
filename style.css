@@ -4,6 +4,10 @@ main {
     justify-content: center;
 }
 
+.two-player-input {
+    display: none;
+}
+
 .board {
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
