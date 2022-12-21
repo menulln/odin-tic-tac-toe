@@ -91,7 +91,7 @@ const Controller = (() => {
 			twoPlayerInput.style.display = 'block';
 		};
 
-		const startGame = () => {
+		const getInputs = () => {
 			const btnStartGame = document.querySelector('.two-player-start');
 
 			const setNames = () => {
@@ -108,7 +108,7 @@ const Controller = (() => {
 		};
 
 		drawInputs();
-		startGame();
+		getInputs();
 	};
 
 	const checkWin = (marker) => {
