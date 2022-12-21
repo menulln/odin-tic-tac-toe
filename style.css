@@ -20,4 +20,5 @@ main {
     font-size: calc(3rem + 3vw);
     border: 1px solid black;
     font-weight: 1000;
+    cursor: default;
 }
