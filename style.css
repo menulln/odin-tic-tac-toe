@@ -21,4 +21,5 @@ main {
     border: 1px solid black;
     font-weight: 1000;
     cursor: default;
+    display: none;
 }
