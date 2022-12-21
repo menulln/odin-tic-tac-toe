@@ -1,9 +1,28 @@
-const Player = (marker) => ({ marker });
+const Player = (playerName, playerMarker) => {
+	const getName = () => playerName;
+
+	const getMarker = () => playerMarker;
+
+	const setName = (name) => {
+		playerName = name;
+	};
+
+	const setMarker = (marker) => {
+		playerMarker = marker;
+	};
+
+	return {
+		getName,
+		setName,
+		getMarker,
+		setMarker,
+	};
+};
 
 const Game = (() => {
 	const board = ['', '', '', '', '', '', '', '', ''];
-	const playerOne = Player('x');
-	const playerTwo = Player('o');
+	const playerOne = Player('Player One', 'x');
+	const playerTwo = Player('Player Two', 'o');
 
 	const getBoard = () => board;
 
@@ -52,14 +71,6 @@ const Controller = (() => {
 	const board = Game.getBoard();
 	let playerOneTurn = true;
 	let gameOver = false;
-
-	const drawTwoPlayerInput = () => {
-		const startScreen = document.querySelector('.start');
-		const twoPlayerInput = document.querySelector('.two-player-input');
-
-		startScreen.style.display = 'none';
-		twoPlayerInput.style.display = 'block';
-	};
 
 	const drawBoard = () => {
 		const squares = document.querySelectorAll('.square');
