@@ -1,11 +1,9 @@
 const Player = (marker) => ({ marker });
 
 const Game = (() => {
-	const x = 'x';
-	const o = 'o';
-	const playerOne = Player(x);
-	const playerTwo = Player(o);
 	const board = ['', '', '', '', '', '', '', '', ''];
+	const playerOne = Player('x');
+	const playerTwo = Player('o');
 
 	const getBoard = () => board;
 
@@ -15,6 +13,7 @@ const Game = (() => {
 
 	const init = () => {
 		const squares = document.querySelectorAll('.square');
+
 		squares.forEach((square) => {
 			square.addEventListener('pointerdown', Controller.placeMarker);
 		});
@@ -32,16 +31,14 @@ const Game = (() => {
 		setBoard,
 		playerOne,
 		playerTwo,
-		x,
-		o,
 	};
 })();
 
 const Controller = (() => {
+	const board = Game.getBoard();
 	let playerOneTurn = true;
 
 	const drawBoard = () => {
-		const board = Game.getBoard();
 		const squares = document.querySelectorAll('.square');
 		let i = 0;
 
@@ -52,8 +49,6 @@ const Controller = (() => {
 	};
 
 	const checkWin = (marker) => {
-		const board = Game.getBoard();
-
 		const checkRow = () => {
 			if (
 				board[0] === marker &&
@@ -124,6 +119,7 @@ const Controller = (() => {
 		const marker = playerOneTurn
 			? Game.playerOne.marker
 			: Game.playerTwo.marker;
+
 		if (e.target.textContent === '') {
 			if (playerOneTurn) {
 				Game.setBoard(position, marker);
