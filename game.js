@@ -82,6 +82,35 @@ const Controller = (() => {
 		});
 	};
 
+	const drawTwoPlayerInput = () => {
+		const drawInputs = () => {
+			const startScreen = document.querySelector('.start');
+			const twoPlayerInput = document.querySelector('.two-player-input');
+
+			startScreen.style.display = 'none';
+			twoPlayerInput.style.display = 'block';
+		};
+
+		const startGame = () => {
+			const btnStartGame = document.querySelector('.two-player-start');
+
+			const setNames = () => {
+				const playerOneName =
+					document.querySelector('#player-one-name').value;
+				const playerTwoName =
+					document.querySelector('#player-two-name').value;
+
+				Game.playerOne.setName(playerOneName);
+				Game.playerTwo.setName(playerTwoName);
+			};
+
+			btnStartGame.addEventListener('pointerdown', setNames);
+		};
+
+		drawInputs();
+		startGame();
+	};
+
 	const checkWin = (marker) => {
 		const checkRow = () => {
 			if (
