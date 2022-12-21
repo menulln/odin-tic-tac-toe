@@ -44,16 +44,12 @@ const Game = (() => {
 
 		initStartScreen();
 
-		/*
 		const squares = document.querySelectorAll('.square');
 
 		squares.forEach((square) => {
 			square.addEventListener('pointerdown', Controller.placeMarker);
 		});
-
-		Controller.drawBoard();	*/
 	};
-
 	const start = () => {
 		init();
 	};
@@ -83,16 +79,17 @@ const Controller = (() => {
 	};
 
 	const drawTwoPlayerInput = () => {
-		const drawInputs = () => {
-			const startScreen = document.querySelector('.start');
-			const twoPlayerInput = document.querySelector('.two-player-input');
+		const startScreen = document.querySelector('.start');
+		const twoPlayerInput = document.querySelector('.two-player-input');
+		const btnStartGame = document.querySelector('.two-player-start');
 
+		const drawInputs = () => {
 			startScreen.style.display = 'none';
 			twoPlayerInput.style.display = 'block';
 		};
 
-		const getInputs = () => {
-			const btnStartGame = document.querySelector('.two-player-start');
+		const startGame = () => {
+			const boardElement = document.querySelector('.board');
 
 			const setNames = () => {
 				const playerOneName =
@@ -104,11 +101,13 @@ const Controller = (() => {
 				Game.playerTwo.setName(playerTwoName);
 			};
 
-			btnStartGame.addEventListener('pointerdown', setNames);
+			setNames();
+			twoPlayerInput.style.display = 'none';
+			boardElement.style.display = 'grid';
 		};
 
 		drawInputs();
-		getInputs();
+		btnStartGame.addEventListener('pointerdown', startGame);
 	};
 
 	const checkWin = (marker) => {
@@ -188,8 +187,8 @@ const Controller = (() => {
 	const placeMarker = (e) => {
 		const { position } = e.target.dataset;
 		const marker = playerOneTurn
-			? Game.playerOne.marker
-			: Game.playerTwo.marker;
+			? Game.playerOne.getMarker()
+			: Game.playerTwo.getMarker();
 
 		if (e.target.textContent === '' && !gameOver) {
 			if (playerOneTurn) {
