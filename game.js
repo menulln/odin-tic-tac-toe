@@ -37,6 +37,7 @@ const Game = (() => {
 const Controller = (() => {
 	const board = Game.getBoard();
 	let playerOneTurn = true;
+	let gameOver = false;
 
 	const drawBoard = () => {
 		const squares = document.querySelectorAll('.square');
@@ -56,18 +57,21 @@ const Controller = (() => {
 				board[2] === marker
 			) {
 				console.log(`${marker} won!`);
+				gameOver = true;
 			} else if (
 				board[3] === marker &&
 				board[4] === marker &&
 				board[5] === marker
 			) {
 				console.log(`${marker} won!`);
+				gameOver = true;
 			} else if (
 				board[6] === marker &&
 				board[7] === marker &&
 				board[8] === marker
 			) {
 				console.log(`${marker} won!`);
+				gameOver = true;
 			}
 		};
 
@@ -78,18 +82,21 @@ const Controller = (() => {
 				board[6] === marker
 			) {
 				console.log(`${marker} won!`);
+				gameOver = true;
 			} else if (
 				board[1] === marker &&
 				board[4] === marker &&
 				board[7] === marker
 			) {
 				console.log(`${marker} won!`);
+				gameOver = true;
 			} else if (
 				board[2] === marker &&
 				board[5] === marker &&
 				board[8] === marker
 			) {
 				console.log(`${marker} won!`);
+				gameOver = true;
 			}
 		};
 
@@ -100,12 +107,14 @@ const Controller = (() => {
 				board[8] === marker
 			) {
 				console.log(`${marker} won!`);
+				gameOver = true;
 			} else if (
 				board[2] === marker &&
 				board[4] === marker &&
 				board[6] === marker
 			) {
 				console.log(`${marker} won!`);
+				gameOver = true;
 			}
 		};
 
@@ -120,7 +129,7 @@ const Controller = (() => {
 			? Game.playerOne.marker
 			: Game.playerTwo.marker;
 
-		if (e.target.textContent === '') {
+		if (e.target.textContent === '' && !gameOver) {
 			if (playerOneTurn) {
 				Game.setBoard(position, marker);
 				drawBoard();
