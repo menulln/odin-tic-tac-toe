@@ -12,13 +12,27 @@ const Game = (() => {
 	};
 
 	const init = () => {
+		const initStartScreen = () => {
+			const btnTwoPlayer = document.querySelector('.start-button-1vs1');
+			const btnAi = document.querySelector('.start-button-1vsai');
+			const btnOnline = document.querySelector('.start-button-online');
+
+			btnTwoPlayer.addEventListener(
+				'pointerdown',
+				Controller.drawTwoPlayerInput
+			);
+		};
+
+		initStartScreen();
+
+		/*
 		const squares = document.querySelectorAll('.square');
 
 		squares.forEach((square) => {
 			square.addEventListener('pointerdown', Controller.placeMarker);
 		});
 
-		Controller.drawBoard();
+		Controller.drawBoard();	*/
 	};
 
 	const start = () => {
@@ -38,6 +52,14 @@ const Controller = (() => {
 	const board = Game.getBoard();
 	let playerOneTurn = true;
 	let gameOver = false;
+
+	const drawTwoPlayerInput = () => {
+		const startScreen = document.querySelector('.start');
+		const twoPlayerInput = document.querySelector('.two-player-input');
+
+		startScreen.style.display = 'none';
+		twoPlayerInput.style.display = 'block';
+	};
 
 	const drawBoard = () => {
 		const squares = document.querySelectorAll('.square');
@@ -145,6 +167,7 @@ const Controller = (() => {
 	};
 
 	return {
+		drawTwoPlayerInput,
 		drawBoard,
 		placeMarker,
 	};
