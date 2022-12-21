@@ -51,6 +51,74 @@ const Controller = (() => {
 		});
 	};
 
+	const checkWin = (marker) => {
+		const board = Game.getBoard();
+
+		const checkRow = () => {
+			if (
+				board[0] === marker &&
+				board[1] === marker &&
+				board[2] === marker
+			) {
+				console.log(`${marker} won!`);
+			} else if (
+				board[3] === marker &&
+				board[4] === marker &&
+				board[5] === marker
+			) {
+				console.log(`${marker} won!`);
+			} else if (
+				board[6] === marker &&
+				board[7] === marker &&
+				board[8] === marker
+			) {
+				console.log(`${marker} won!`);
+			}
+		};
+
+		const checkColumn = () => {
+			if (
+				board[0] === marker &&
+				board[3] === marker &&
+				board[6] === marker
+			) {
+				console.log(`${marker} won!`);
+			} else if (
+				board[1] === marker &&
+				board[4] === marker &&
+				board[7] === marker
+			) {
+				console.log(`${marker} won!`);
+			} else if (
+				board[2] === marker &&
+				board[5] === marker &&
+				board[8] === marker
+			) {
+				console.log(`${marker} won!`);
+			}
+		};
+
+		const checkDiagonal = () => {
+			if (
+				board[0] === marker &&
+				board[4] === marker &&
+				board[8] === marker
+			) {
+				console.log(`${marker} won!`);
+			} else if (
+				board[2] === marker &&
+				board[4] === marker &&
+				board[6] === marker
+			) {
+				console.log(`${marker} won!`);
+			}
+		};
+
+		checkRow();
+		checkColumn();
+		checkDiagonal();
+	};
+
 	const placeMarker = (e) => {
 		const { position } = e.target.dataset;
 		const marker = playerOneTurn
@@ -60,14 +128,17 @@ const Controller = (() => {
 			if (playerOneTurn) {
 				Game.setBoard(position, marker);
 				drawBoard();
+				checkWin(marker);
 				playerOneTurn = false;
 			} else {
 				Game.setBoard(position, marker);
 				drawBoard();
+				checkWin(marker);
 				playerOneTurn = true;
 			}
 		}
 	};
+
 	return {
 		drawBoard,
 		placeMarker,
