@@ -117,21 +117,18 @@ const Controller = (() => {
 				board[1] === marker &&
 				board[2] === marker
 			) {
-				console.log(`${marker} won!`);
 				gameOver = true;
 			} else if (
 				board[3] === marker &&
 				board[4] === marker &&
 				board[5] === marker
 			) {
-				console.log(`${marker} won!`);
 				gameOver = true;
 			} else if (
 				board[6] === marker &&
 				board[7] === marker &&
 				board[8] === marker
 			) {
-				console.log(`${marker} won!`);
 				gameOver = true;
 			}
 		};
@@ -142,21 +139,18 @@ const Controller = (() => {
 				board[3] === marker &&
 				board[6] === marker
 			) {
-				console.log(`${marker} won!`);
 				gameOver = true;
 			} else if (
 				board[1] === marker &&
 				board[4] === marker &&
 				board[7] === marker
 			) {
-				console.log(`${marker} won!`);
 				gameOver = true;
 			} else if (
 				board[2] === marker &&
 				board[5] === marker &&
 				board[8] === marker
 			) {
-				console.log(`${marker} won!`);
 				gameOver = true;
 			}
 		};
@@ -167,14 +161,12 @@ const Controller = (() => {
 				board[4] === marker &&
 				board[8] === marker
 			) {
-				console.log(`${marker} won!`);
 				gameOver = true;
 			} else if (
 				board[2] === marker &&
 				board[4] === marker &&
 				board[6] === marker
 			) {
-				console.log(`${marker} won!`);
 				gameOver = true;
 			}
 		};
