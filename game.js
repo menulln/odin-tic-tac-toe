@@ -65,6 +65,7 @@ const Game = (() => {
 
 const Controller = (() => {
 	const board = Game.getBoard();
+	const boardElement = document.querySelector('.board');
 	let playerOneTurn = true;
 	let gameOver = false;
 
@@ -89,8 +90,6 @@ const Controller = (() => {
 		};
 
 		const startGame = () => {
-			const boardElement = document.querySelector('.board');
-
 			const setNames = () => {
 				const playerOneName =
 					document.querySelector('#player-one-name').value;
@@ -108,6 +107,15 @@ const Controller = (() => {
 
 		drawInputs();
 		btnStartGame.addEventListener('pointerdown', startGame);
+	};
+
+	const drawWinScreen = (winner) => {
+		const winScreen = document.querySelector('.win');
+		const winText = winScreen.querySelector('p');
+
+		winText.textContent = `${winner} won!`;
+		boardElement.style.display = 'none';
+		winScreen.style.display = 'block';
 	};
 
 	const checkWin = (marker) => {
@@ -174,6 +182,14 @@ const Controller = (() => {
 		checkRow();
 		checkColumn();
 		checkDiagonal();
+
+		if (gameOver) {
+			const winner =
+				marker === Game.playerOne.getMarker()
+					? Game.playerOne.getName()
+					: Game.playerTwo.getName();
+			drawWinScreen(winner);
+		}
 	};
 
 	const placeMarker = (e) => {
@@ -203,3 +219,5 @@ const Controller = (() => {
 		placeMarker,
 	};
 })();
+
+Game.start();
