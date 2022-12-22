@@ -69,6 +69,7 @@ const Controller = (() => {
 	const squares = document.querySelectorAll('.square');
 	let playerOneTurn = true;
 	let gameOver = false;
+	let draw = false;
 
 	const drawBoard = () => {
 		let i = 0;
@@ -122,8 +123,9 @@ const Controller = (() => {
 		const btnRestart = winScreen.querySelector('.win-button-restart');
 		const btnQuit = winScreen.querySelector('.win-button-quit');
 
+		gameOver = false;
+
 		const restart = () => {
-			gameOver = false;
 			clearBoard();
 			winScreen.style.display = 'none';
 			boardElement.style.display = 'grid';
@@ -131,7 +133,6 @@ const Controller = (() => {
 
 		const quit = () => {
 			const startScreen = document.querySelector('.start');
-			gameOver = false;
 			clearBoard();
 			winScreen.style.display = 'none';
 			startScreen.style.display = 'block';
@@ -140,7 +141,13 @@ const Controller = (() => {
 		btnRestart.addEventListener('pointerdown', restart);
 		btnQuit.addEventListener('pointerdown', quit);
 
-		winText.textContent = `${winner} won!`;
+		if (draw) {
+			winText.textContent = 'Draw.';
+			draw = false;
+		} else {
+			winText.textContent = `${winner} won!`;
+		}
+
 		boardElement.style.display = 'none';
 		winScreen.style.display = 'block';
 	};
@@ -206,9 +213,17 @@ const Controller = (() => {
 			}
 		};
 
+		const checkDraw = () => {
+			if (!board.includes('')) {
+				draw = true;
+				gameOver = true;
+			}
+		};
+
 		checkRow();
 		checkColumn();
 		checkDiagonal();
+		checkDraw();
 
 		if (gameOver) {
 			const winner =
