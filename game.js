@@ -129,7 +129,16 @@ const Controller = (() => {
 			boardElement.style.display = 'grid';
 		};
 
+		const quit = () => {
+			const startScreen = document.querySelector('.start');
+			gameOver = false;
+			clearBoard();
+			winScreen.style.display = 'none';
+			startScreen.style.display = 'block';
+		};
+
 		btnRestart.addEventListener('pointerdown', restart);
+		btnQuit.addEventListener('pointerdown', quit);
 
 		winText.textContent = `${winner} won!`;
 		boardElement.style.display = 'none';
