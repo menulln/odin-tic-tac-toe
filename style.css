@@ -26,3 +26,7 @@ main {
     font-weight: 1000;
     cursor: default;
 }
+
+.win {
+    display: none;
+}
