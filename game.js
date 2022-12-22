@@ -79,6 +79,13 @@ const Controller = (() => {
 		});
 	};
 
+	const clearBoard = () => {
+		for (let i = 0; i < board.length; i++) {
+			board[i] = '';
+		}
+		drawBoard();
+	};
+
 	const drawTwoPlayerInput = () => {
 		const startScreen = document.querySelector('.start');
 		const twoPlayerInput = document.querySelector('.two-player-input');
@@ -116,8 +123,10 @@ const Controller = (() => {
 		const btnQuit = winScreen.querySelector('.win-button-quit');
 
 		const restart = () => {
+			gameOver = false;
+			clearBoard();
 			winScreen.style.display = 'none';
-			boardElement.style.display = 'block';
+			boardElement.style.display = 'grid';
 		};
 
 		btnRestart.addEventListener('pointerdown', restart);
