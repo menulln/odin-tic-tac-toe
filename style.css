@@ -9,7 +9,7 @@ main {
 }
 
 .board {
-    display: grid;
+    display: none;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
@@ -25,5 +25,4 @@ main {
     border: 1px solid black;
     font-weight: 1000;
     cursor: default;
-    display: none;
 }
