@@ -66,11 +66,11 @@ const Game = (() => {
 const Controller = (() => {
 	const board = Game.getBoard();
 	const boardElement = document.querySelector('.board');
+	const squares = document.querySelectorAll('.square');
 	let playerOneTurn = true;
 	let gameOver = false;
 
 	const drawBoard = () => {
-		const squares = document.querySelectorAll('.square');
 		let i = 0;
 
 		squares.forEach((square) => {
@@ -112,6 +112,15 @@ const Controller = (() => {
 	const drawWinScreen = (winner) => {
 		const winScreen = document.querySelector('.win');
 		const winText = winScreen.querySelector('p');
+		const btnRestart = winScreen.querySelector('.win-button-restart');
+		const btnQuit = winScreen.querySelector('.win-button-quit');
+
+		const restart = () => {
+			winScreen.style.display = 'none';
+			boardElement.style.display = 'block';
+		};
+
+		btnRestart.addEventListener('pointerdown', restart);
 
 		winText.textContent = `${winner} won!`;
 		boardElement.style.display = 'none';
