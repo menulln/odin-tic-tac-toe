@@ -40,6 +40,8 @@ const Game = (() => {
 				'pointerdown',
 				Controller.drawTwoPlayerInput
 			);
+
+			btnAi.addEventListener('pointerdown', Controller.drawAiInput);
 		};
 
 		initStartScreen();
@@ -64,6 +66,7 @@ const Game = (() => {
 })();
 
 const Controller = (() => {
+	const startScreen = document.querySelector('.start');
 	const board = Game.getBoard();
 	const boardElement = document.querySelector('.board');
 	const squares = document.querySelectorAll('.square');
@@ -88,7 +91,6 @@ const Controller = (() => {
 	};
 
 	const drawTwoPlayerInput = () => {
-		const startScreen = document.querySelector('.start');
 		const twoPlayerInput = document.querySelector('.two-player-input');
 		const btnStartGame = document.querySelector('.two-player-start');
 
@@ -110,6 +112,33 @@ const Controller = (() => {
 
 			setNames();
 			twoPlayerInput.style.display = 'none';
+			boardElement.style.display = 'grid';
+		};
+
+		drawInputs();
+		btnStartGame.addEventListener('pointerdown', startGame);
+	};
+
+	const drawAiInput = () => {
+		const aiInput = document.querySelector('.ai-input');
+		const btnStartGame = document.querySelector('.ai-start');
+
+		const drawInputs = () => {
+			startScreen.style.display = 'none';
+			aiInput.style.display = 'block';
+		};
+
+		const startGame = () => {
+			const setNames = () => {
+				const playerOneName =
+					document.querySelector('#player-ai-name').value;
+
+				Game.playerOne.setName(playerOneName);
+				Game.playerTwo.setName('CPU');
+			};
+
+			setNames();
+			aiInput.style.display = 'none';
 			boardElement.style.display = 'grid';
 		};
 
@@ -257,6 +286,7 @@ const Controller = (() => {
 
 	return {
 		drawTwoPlayerInput,
+		drawAiInput,
 		drawBoard,
 		placeMarker,
 	};
