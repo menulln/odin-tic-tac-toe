@@ -152,7 +152,7 @@ const Controller = (() => {
 		const btnRestart = winScreen.querySelector('.win-button-restart');
 		const btnQuit = winScreen.querySelector('.win-button-quit');
 
-		// gameOver = false;
+		gameOver = false;
 
 		const restart = () => {
 			clearBoard();
@@ -269,12 +269,13 @@ const Controller = (() => {
 			: Game.playerTwo.getMarker();
 
 		if (Game.playerTwo.getName() === 'CPU') {
+			const playerMarker = Game.playerOne.getMarker();
 			const cpuMarker = Game.playerTwo.getMarker();
 
 			if (e.target.textContent === '' && !gameOver) {
-				Game.setBoard(position, marker);
+				Game.setBoard(position, playerMarker);
 				drawBoard();
-				checkWin(marker);
+				checkWin(playerMarker);
 				if (!gameOver) {
 					const random = () => {
 						const r = Math.floor(Math.random() * 9 + 1);
@@ -286,8 +287,6 @@ const Controller = (() => {
 					Game.setBoard(random(), cpuMarker);
 					drawBoard();
 					checkWin(cpuMarker);
-				} else {
-					gameOver = false;
 				}
 			}
 		}
@@ -304,10 +303,6 @@ const Controller = (() => {
 				checkWin(marker);
 				playerOneTurn = true;
 			}
-		}
-
-		if (gameOver) {
-			gameOver = false;
 		}
 	};
 
