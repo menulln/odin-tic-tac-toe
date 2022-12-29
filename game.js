@@ -161,7 +161,6 @@ const Controller = (() => {
 		};
 
 		const quit = () => {
-			const startScreen = document.querySelector('.start');
 			clearBoard();
 			winScreen.style.display = 'none';
 			startScreen.style.display = 'block';
