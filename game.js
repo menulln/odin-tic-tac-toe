@@ -34,7 +34,6 @@ const Game = (() => {
 		const initStartScreen = () => {
 			const btnTwoPlayer = document.querySelector('.start-button-1vs1');
 			const btnAi = document.querySelector('.start-button-1vsai');
-			const btnOnline = document.querySelector('.start-button-online');
 
 			btnTwoPlayer.addEventListener(
 				'pointerdown',
