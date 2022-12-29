@@ -8,6 +8,10 @@ main {
     display: none;
 }
 
+.ai-input {
+    display: none;
+}
+
 .board {
     display: none;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
