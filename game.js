@@ -152,8 +152,6 @@ const Controller = (() => {
 		const btnRestart = winScreen.querySelector('.win-button-restart');
 		const btnQuit = winScreen.querySelector('.win-button-quit');
 
-		gameOver = false;
-
 		const restart = () => {
 			clearBoard();
 			winScreen.style.display = 'none';
@@ -268,14 +266,18 @@ const Controller = (() => {
 			? Game.playerOne.getMarker()
 			: Game.playerTwo.getMarker();
 
+		const setBoard = (pos, m) => {
+			Game.setBoard(pos, m);
+			drawBoard();
+			checkWin(m);
+		};
+
 		if (Game.playerTwo.getName() === 'CPU') {
 			const playerMarker = Game.playerOne.getMarker();
 			const cpuMarker = Game.playerTwo.getMarker();
 
 			if (e.target.textContent === '' && !gameOver) {
-				Game.setBoard(position, playerMarker);
-				drawBoard();
-				checkWin(playerMarker);
+				setBoard(position, playerMarker);
 				if (!gameOver) {
 					const random = () => {
 						const r = Math.floor(Math.random() * 9 + 1);
@@ -284,25 +286,23 @@ const Controller = (() => {
 						}
 						return random();
 					};
-					Game.setBoard(random(), cpuMarker);
-					drawBoard();
-					checkWin(cpuMarker);
+					setBoard(random(), cpuMarker);
 				}
 			}
 		}
 
 		if (e.target.textContent === '') {
 			if (playerOneTurn) {
-				Game.setBoard(position, marker);
-				drawBoard();
-				checkWin(marker);
+				setBoard(position, marker);
 				playerOneTurn = false;
 			} else {
-				Game.setBoard(position, marker);
-				drawBoard();
-				checkWin(marker);
+				setBoard(position, marker);
 				playerOneTurn = true;
 			}
+		}
+
+		if (gameOver) {
+			gameOver = false;
 		}
 	};
 
