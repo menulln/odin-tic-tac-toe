@@ -268,6 +268,28 @@ const Controller = (() => {
 			? Game.playerOne.getMarker()
 			: Game.playerTwo.getMarker();
 
+		if (Game.playerTwo.getName() === 'CPU') {
+			const cpuMarker = Game.playerTwo.getMarker();
+
+			if (e.target.textContent === '' && !gameOver) {
+				Game.setBoard(position, marker);
+				drawBoard();
+				checkWin(marker);
+				if (!gameOver) {
+					const random = () => {
+						const r = Math.floor(Math.random() * 9 + 1);
+						if (Game.getBoard()[r - 1] === '') {
+							return r;
+						}
+						return random();
+					};
+					Game.setBoard(random(), cpuMarker);
+					drawBoard();
+					checkWin(cpuMarker);
+				}
+			}
+		}
+
 		if (e.target.textContent === '' && !gameOver) {
 			if (playerOneTurn) {
 				Game.setBoard(position, marker);
