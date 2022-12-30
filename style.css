@@ -3,6 +3,14 @@
     padding: 0;
 }
 
+:root {
+    --green: rgb(157, 255, 165);
+    --red: rgb(250, 150, 150);
+    --btn-padding: 1.5rem 6rem;
+    --btn-radius: 1rem;
+    --btn-font-size: calc(1rem + 1vw);
+}
+
 main {
     width: 100%;
     height: 80vh;
@@ -19,10 +27,10 @@ main {
 }
 
 .start-button {
-    padding: 1.5rem 6rem;
-    border-radius: 1rem;
-    font-size: calc(1rem + 1vw);
-    background-color: rgb(137, 240, 145);
+    padding: var(--btn-padding);
+    border-radius: var(--btn-radius);
+    font-size: var(--btn-font-size);
+    background-color: var(--green);
 }
 
 .two-player-input {
