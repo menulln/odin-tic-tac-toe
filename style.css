@@ -42,7 +42,8 @@ main {
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 
-.start-button {
+.start-button,
+.two-player-start {
     width: var(--btn-width);
     height: var(--btn-height);
     border: var(--btn-border);
@@ -58,6 +59,25 @@ main {
 
 .two-player-input {
     display: none;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(1rem + 1vw);
+}
+
+.two-player-input > input {
+    width: 120%;
+    height: 2rem;
+    border: var(--btn-border);
+    border-radius: var(--btn-radius);
+    padding: 0 5%;
+}
+
+#player-one-name {
+    margin-bottom: 1rem;
+}
+
+.two-player-start {
+    margin-top: 2rem;
 }
 
 .ai-input {
