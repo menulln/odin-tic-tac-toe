@@ -44,7 +44,8 @@ main {
 
 .start-button,
 .two-player-start,
-.win-button {
+.win-button,
+.ai-start {
     width: var(--btn-width);
     height: var(--btn-height);
     border: var(--btn-border);
@@ -58,14 +59,16 @@ main {
     background-color: lightgray;
 }
 
-.two-player-input {
+.two-player-input,
+.ai-input {
     display: none;
     flex-direction: column;
     align-items: center;
     font-size: calc(1rem + 1vw);
 }
 
-.two-player-input > input {
+.two-player-input > input,
+.ai-input > input {
     width: 120%;
     height: 2rem;
     border: var(--btn-border);
@@ -77,12 +80,9 @@ main {
     margin-bottom: 1rem;
 }
 
-.two-player-start {
+.two-player-start,
+.ai-start {
     margin-top: 2rem;
-}
-
-.ai-input {
-    display: none;
 }
 
 .board {
