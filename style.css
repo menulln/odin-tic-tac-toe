@@ -43,7 +43,8 @@ main {
 }
 
 .start-button,
-.two-player-start {
+.two-player-start,
+.win-button {
     width: var(--btn-width);
     height: var(--btn-height);
     border: var(--btn-border);
@@ -105,6 +106,14 @@ main {
 
 .win {
     display: none;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(1rem + 1vw);
+    gap: 2rem;
+}
+
+.win-button-quit {
+    background-color: var(--red);
 }
 
 @keyframes slide {
