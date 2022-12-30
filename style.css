@@ -8,9 +8,11 @@
 :root {
     --green: rgb(157, 255, 165);
     --red: rgb(250, 150, 150);
-    --btn-padding: 1.5rem 6rem;
+    --btn-width: 14rem;
+    --btn-height: 4rem;
+    --btn-border: 2px solid rgb(107, 107, 107);
     --btn-radius: 1rem;
-    --btn-font-size: calc(1rem + 1vw);
+    --btn-font-size: calc(1.5rem + 0.5vw);
 }
 
 main {
@@ -29,11 +31,18 @@ main {
     gap: 2rem;
 }
 
+.start > h1 {
+    font-size: calc(2.5rem + 1vw);
+}
+
 .start-button {
-    padding: var(--btn-padding);
+    width: var(--btn-width);
+    height: var(--btn-height);
+    border: var(--btn-border);
     border-radius: var(--btn-radius);
     font-size: var(--btn-font-size);
     background-color: var(--green);
+    font-family: inherit;
 }
 
 .two-player-input {
