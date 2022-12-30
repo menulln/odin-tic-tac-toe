@@ -5,8 +5,24 @@
 
 main {
     width: 100%;
+    height: 80vh;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.start-button {
+    padding: 1.5rem 6rem;
+    border-radius: 1rem;
+    font-size: calc(1rem + 1vw);
+    background-color: rgb(137, 240, 145);
 }
 
 .two-player-input {
