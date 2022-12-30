@@ -126,7 +126,7 @@ const Controller = (() => {
 
 		const drawInputs = () => {
 			startScreen.style.display = 'none';
-			aiInput.style.display = 'block';
+			aiInput.style.display = 'flex';
 		};
 
 		const startGame = () => {
