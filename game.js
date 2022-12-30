@@ -101,9 +101,11 @@ const Controller = (() => {
 		const startGame = () => {
 			const setNames = () => {
 				const playerOneName =
-					document.querySelector('#player-one-name').value;
+					document.querySelector('#player-one-name').value ||
+					'Player One';
 				const playerTwoName =
-					document.querySelector('#player-two-name').value;
+					document.querySelector('#player-two-name').value ||
+					'Player Two';
 
 				Game.playerOne.setName(playerOneName);
 				Game.playerTwo.setName(playerTwoName);
@@ -130,7 +132,8 @@ const Controller = (() => {
 		const startGame = () => {
 			const setNames = () => {
 				const playerOneName =
-					document.querySelector('#player-ai-name').value;
+					document.querySelector('#player-ai-name').value ||
+					'Player One';
 
 				Game.playerOne.setName(playerOneName);
 				Game.playerTwo.setName('CPU');
@@ -174,7 +177,7 @@ const Controller = (() => {
 		}
 
 		boardElement.style.display = 'none';
-		winScreen.style.display = 'block';
+		winScreen.style.display = 'flex';
 	};
 
 	const checkWin = (marker) => {
