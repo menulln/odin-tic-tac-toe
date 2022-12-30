@@ -95,7 +95,7 @@ const Controller = (() => {
 
 		const drawInputs = () => {
 			startScreen.style.display = 'none';
-			twoPlayerInput.style.display = 'block';
+			twoPlayerInput.style.display = 'flex';
 		};
 
 		const startGame = () => {
@@ -160,7 +160,7 @@ const Controller = (() => {
 		const quit = () => {
 			clearBoard();
 			winScreen.style.display = 'none';
-			startScreen.style.display = 'block';
+			startScreen.style.display = 'flex';
 		};
 
 		btnRestart.addEventListener('pointerdown', restart);
