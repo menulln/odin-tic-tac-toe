@@ -13,6 +13,9 @@
     --btn-border: 2px solid rgb(107, 107, 107);
     --btn-radius: 1rem;
     --btn-font-size: calc(1.5rem + 0.5vw);
+    --sqr-border-clr: rgb(37, 37, 37);
+    --sqr-border: 8px solid var(--sqr-border-clr);
+    --sqr-radius: 1rem;
 }
 
 body {
@@ -99,9 +102,44 @@ main {
     min-height: 25vmin;
     justify-self: center;
     font-size: calc(3rem + 3vw);
-    border: 1px solid black;
+    border: 3px solid var(--sqr-border-clr);
     font-weight: 1000;
     cursor: default;
+}
+
+.square:nth-child(-n+3) {
+    border-top: var(--sqr-border);
+}
+
+.square:nth-last-child(-n+3) {
+    border-bottom: var(--sqr-border);
+}
+
+.square:nth-last-child(3n) {
+    border-left: var(--sqr-border);
+    margin-right: -4px;
+    margin-left: -1px;
+}
+
+.square:nth-child(3n) {
+    border-right: var(--sqr-border);
+    margin-left: -2px;
+}
+
+.square:first-child {
+    border-top-left-radius: var(--sqr-radius);
+}
+
+.square:nth-child(3) {
+    border-top-right-radius: var(--sqr-radius);
+}
+
+.square:nth-child(7) {
+    border-bottom-left-radius: var(--sqr-radius);
+}
+
+.square:last-child {
+    border-bottom-right-radius: var(--sqr-radius);
 }
 
 .win {
