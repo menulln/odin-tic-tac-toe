@@ -152,6 +152,17 @@ const Controller = (() => {
 				Game.playerTwo.setName('CPU');
 			};
 
+			const setMarkers = () => {
+				const playerOneMarker = String.fromCodePoint(
+					`0${document.querySelector('#player-ai-marker').value}`
+				);
+				const playerTwoMarker = String.fromCodePoint(0x2b55);
+
+				Game.playerOne.setMarker(playerOneMarker);
+				Game.playerTwo.setMarker(playerTwoMarker);
+			};
+
+			setMarkers();
 			setNames();
 			aiInput.style.display = 'none';
 			boardElement.style.display = 'grid';
