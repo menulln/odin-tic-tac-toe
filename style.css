@@ -85,31 +85,26 @@ main {
     padding: 0 7.5%;
 }
 
-#player-one-name,
-#player-two-name,
-#player-one-marker,
-#player-two-marker {
+input[type="text"],
+select {
     border: var(--btn-border);
     border-radius: var(--btn-radius);
     padding: 0 5%;
 }
 
-#player-one-name,
-#player-two-name {
+input[type="text"] {
     width: 75%;
     height: 1.75rem;
-
 }
 
-#player-one-marker,
-#player-two-marker {
+select {
     width: 70%;
     height: 2rem;
 }
 
 .two-player-start,
 .ai-start {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .board {
