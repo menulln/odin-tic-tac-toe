@@ -111,7 +111,20 @@ const Controller = (() => {
 				Game.playerTwo.setName(playerTwoName);
 			};
 
+			const setMarkers = () => {
+				const playerOneMarker = String.fromCodePoint(
+					`0${document.querySelector('#player-one-marker').value}`
+				);
+				const playerTwoMarker = String.fromCodePoint(
+					`0${document.querySelector('#player-two-marker').value}`
+				);
+
+				Game.playerOne.setMarker(playerOneMarker);
+				Game.playerTwo.setMarker(playerTwoMarker);
+			};
+
 			setNames();
+			setMarkers();
 			twoPlayerInput.style.display = 'none';
 			boardElement.style.display = 'grid';
 		};
