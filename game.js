@@ -219,24 +219,15 @@ const Controller = (() => {
 		};
 
 		const checkColumn = () => {
-			if (
-				board[0] === marker &&
-				board[3] === marker &&
-				board[6] === marker
-			) {
-				gameOver = true;
-			} else if (
-				board[1] === marker &&
-				board[4] === marker &&
-				board[7] === marker
-			) {
-				gameOver = true;
-			} else if (
-				board[2] === marker &&
-				board[5] === marker &&
-				board[8] === marker
-			) {
-				gameOver = true;
+			for (let i = 0; i <= 3; i++) {
+				if (
+					board[i] === marker &&
+					board[i + 3] === marker &&
+					board[i + 6] === marker
+				) {
+					gameOver = true;
+					return;
+				}
 			}
 		};
 
