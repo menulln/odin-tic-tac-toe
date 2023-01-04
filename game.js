@@ -206,24 +206,15 @@ const Controller = (() => {
 
 	const checkWin = (marker) => {
 		const checkRow = () => {
-			if (
-				board[0] === marker &&
-				board[1] === marker &&
-				board[2] === marker
-			) {
-				gameOver = true;
-			} else if (
-				board[3] === marker &&
-				board[4] === marker &&
-				board[5] === marker
-			) {
-				gameOver = true;
-			} else if (
-				board[6] === marker &&
-				board[7] === marker &&
-				board[8] === marker
-			) {
-				gameOver = true;
+			for (let i = 0; i <= 6; i += 3) {
+				if (
+					board[i] === marker &&
+					board[i + 1] === marker &&
+					board[i + 2] === marker
+				) {
+					gameOver = true;
+					return;
+				}
 			}
 		};
 
